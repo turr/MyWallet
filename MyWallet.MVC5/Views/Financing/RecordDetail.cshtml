@@ -1,0 +1,100 @@
+﻿@using MyWallet.MVC5.Infrastructure
+
+@{
+    var json_record_type = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.RECORD_TYPE);
+    var json_summary = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.SUMMARY);
+    var json_summary_record = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.SUMMARY_RECORD);
+
+}
+@section add_css{
+    <link rel=stylesheet type=text/css href="@Url.Content("~/Content/Css/financing-record_detail.css?0121")" />
+    <link rel=stylesheet type=text/css href="@Url.Content("~/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.min.css")" />
+}
+@section add_scripts{
+    <script>
+    var financing_js = @Html.Raw(Html.Lang("_JS_Financing"));
+    require.config({
+        paths: {
+            "bootstrap-datetimepicker": "/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker",
+            "bootstrap-datetimepicker-cn": "/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.zh-CN",
+            "financing-record_detail": "/Content/Scripts/financing-record_detail"
+        },
+        shim: {
+            "bootstrap-datetimepicker": ["bootstrap"],
+            "bootstrap-datetimepicker-cn": ["bootstrap-datetimepicker"]
+        }
+    });
+    require(["bootstrap-datetimepicker", "bootstrap-datetimepicker-cn"], function () { });
+    require(["financing-record_detail"], function (record_detail) {
+        record_detail.Init();
+    });
+    </script>
+}
+
+<div class="container">
+    @{
+        if (json_summary_record != null)
+        {
+            <div class="row">
+                @{
+                    var total = json_summary_record[json_summary_record.Count-1];
+                    <div class="col-xs-6 col-sm-3 col-md-2">
+                        <span>@total.summary_desc : </span>
+                        <span>@total.summary_sum_amount.ToString("0.##")</span>
+                    </div>
+                }
+                @for (int i = 0; i < json_summary_record.Count -1; i++)
+                {
+                    var foreach_data = json_summary_record[i];
+                    <div class="col-xs-6 col-sm-3 col-md-2">
+                        <span>@foreach_data.summary_desc : </span>
+                        <span>@foreach_data.summary_sum_amount.ToString("0.##")</span>
+                    </div>
+                }
+            </div>
+        }
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <input type="text" class="input-sm" name="start_date" value="@DateTime.Now.ToString("yyyy-MM-01")" />-
+                <input type="text" class="input-sm" name="end_date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <select name="search_record_type" class="input-sm">
+                    <option value="-1">@Html.Lang("Financing_RecordDetail_SelectAll")</option>
+                    @foreach (var foreach_data in json_record_type)
+                    {
+                        <option value="@foreach_data.reco_code">@foreach_data.reco_desc</option>
+                    }
+                </select>
+                <select name="search_summary" class="input-sm">
+                    <option value="-1">@Html.Lang("Financing_RecordDetail_SelectAll")</option>
+                    @foreach (var foreach_data in json_summary)
+                    {
+                        <option value="@foreach_data.summ_id">@foreach_data.summ_desc</option>
+                    }
+                </select>
+                <input name="search" type="button" class="btn btn-default" value="@Html.Lang("_Comm_Search")" />
+                <input name="not_deal_loan" type="button" class="btn btn-default" value="@Html.Lang("Financing_RecordDetail_NoDealLoan")" />
+            </div>
+        </div>
+
+        <div name="result_box" class="result_box">
+            <div class="row hidden" name="row_module"> 
+                <div class="col-xs-12 col-sm-2 nopadding">
+                    <input type="button" name="delete_record" value="@Html.Lang("_Comm_Delete")" />
+                    <input type="button" name="deal_record" value="@Html.Lang("Financing_RecordDetail_Filing")" />
+                    <input type="hidden" name="record_id"  />
+                </div>
+                <div class="col-xs-3 col-sm-1 nopadding" name="record_type_desc">
+                </div>
+                <div class="col-xs-5 col-sm-2 nopadding" name="summary_desc">
+                </div>
+                <div class="col-xs-3 col-sm-1 nopadding amount" name="amount">
+                </div>
+                <div class="col-xs-12 col-sm-3 nopadding add_date" name="add_date">
+                </div>
+                <div class="col-xs-12 col-sm-3 nopadding" name="remark">
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

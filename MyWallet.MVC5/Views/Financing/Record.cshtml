@@ -1,0 +1,115 @@
+﻿@using MyWallet.MVC5.Infrastructure
+
+@{
+    var json_record_type = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.RECORD_TYPE);
+    var json_summary = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.SUMMARY);
+    var json_loan_type = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.LOAN_TYPE);
+
+}
+@section add_css{
+    <link rel=stylesheet type=text/css href="@Url.Content("~/Content/Css/financing-record.css")" />
+    <link rel=stylesheet type=text/css href="@Url.Content("~/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.min.css")" />
+}
+@section add_scripts{
+    <script>
+    var financing_js = @Html.Raw(Html.Lang("_JS_Financing"));
+    require.config({
+        paths: {
+            "bootstrap-datetimepicker": "/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker",
+            "bootstrap-datetimepicker-cn": "/Content/Lib/bootstrap-datetimepicker-master/bootstrap-datetimepicker.zh-CN",
+            "financing-record": "/Content/Scripts/financing-record"
+        },
+        shim: {
+            "bootstrap-datetimepicker": ["bootstrap"],
+            "bootstrap-datetimepicker-cn": ["bootstrap-datetimepicker"]
+        }
+    });
+    require(["bootstrap-datetimepicker", "bootstrap-datetimepicker-cn"], function () { });
+    require(["financing-record"], function (record) {
+        record.Init();
+    });
+    </script>
+}
+
+<div class="container">
+    @using (Html.BeginForm("Record", "Financing", FormMethod.Post, new { @class = "form-inline", @autocomplete = "off" }))
+    {
+        <div class="form-group">
+            <label >@Html.Lang("Financing_Record_RecordType")</label>
+            <select name="record_type_code" class="form-control">
+                @{
+                    if (json_record_type != null)
+                    {
+                        foreach (var foreach_data in json_record_type)
+                        {
+                            <option value="@foreach_data.reco_code">@foreach_data.reco_desc</option>
+                        }
+                    }
+
+                }
+            </select>
+        </div>
+        <div id="loan_div" class="form-group hidden">
+            <label>@Html.Lang("Financing_Record_LoanType")</label>
+            <select name="loan_type_code" class="form-control">
+                @{
+                    if (json_loan_type != null)
+                    {
+                        foreach (var foreach_data in json_loan_type)
+                        {
+                            <option value="@foreach_data.loan_code">@foreach_data.loan_desc</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <label>@Html.Lang("Financing_Record_Summary")</label>
+            <select name="summary_id" class="form-control">
+
+                @{
+                    if (json_summary != null)
+                    {
+                        foreach (var foreach_data in json_summary)
+                        {
+                            <option value="@foreach_data.summ_id">@foreach_data.summ_desc</option>
+                        }
+                    }
+                }
+            </select>
+            <div id="summary_transfer_div" class="summary_transfer_div hidden">
+                <label class="control-label">@Html.Lang("Financing_Record_To")</label>
+                <select name="summary_transfer_id" class="form-control"></select>
+            </div>
+            <a href="@Url.Content("~/"+Html.LangCode()+"/Financing/SummaryType")" target="_blank">@Html.Lang("Financing_Record_ToSummary")</a>
+        </div>
+        <br />
+        <div class="form-group to_top">
+            <label class="summary_lable"> @Html.Lang("Financing_Record_Amount")</label>
+            <input type="text" class="form-control" name="record_amount">
+            <span name="amount_error_message"></span>
+        </div>
+        <br />
+        <div class="form-group to_top" >
+            <label class="summary_lable"> @Html.Lang("Financing_Record_Remark")</label>
+            <input type="text" class="form-control" name="remark" maxlength="50">
+        </div>
+        <br />
+        <div class="form-group to_top">
+            <label>@Html.Lang("Financing_Record_AddDate")</label>
+            <div class="input-group date form_datetime" >
+                <input class="form-control" name="add_time"  type="text" autocomplete="off" readonly="readonly">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+            <span name="add_time_error_message"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label  class="summary_lable hidden-xs">&nbsp;</label>
+            <button name="save" type="submit" class="btn btn-primary">@Html.Lang("_Comm_Save")</button>
+            <a class="btn btn-default" href="@Url.Content("~/"+Html.LangCode()+"/System/Index")">@Html.Lang("_Comm_Back")</a>
+        </div>
+    }
+</div>

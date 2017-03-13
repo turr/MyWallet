@@ -1,0 +1,55 @@
+﻿@using MyWallet.MVC5.Infrastructure
+@{ 
+    var json_result = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.DATA) ;
+    if (json_result == null)
+    {
+        json_result = "";
+    }
+}
+@section add_scripts{
+    <script>
+        var message = "@json_result";
+        require.config({
+            paths: {
+                "ueditor-config": "/Content/Lib/ueditor/ueditor.config",
+                "ueditor-all-min": "/Content/Lib/ueditor/ueditor.all.min",
+                "ueditor-lang": "/Content/Lib/ueditor/lang/zh-cn/zh-cn",
+                "zero-clipboard": "/Content/Lib/ueditor/third-party/zeroclipboard/ZeroClipboard",
+                "system-develop_message_board": "/Content/Scripts/system-develop_message_board"
+            },
+            shim: {
+                "ueditor-all-min": ["ueditor-config"],
+                "ueditor-lang": ["ueditor-all-min"]
+            }
+        });
+
+        require(["ueditor-config", "ueditor-all-min", "ueditor-lang"], function () { });
+        require(["zero-clipboard"], function (ZeroClipboard) {
+            //设置全局,否则会报错
+            window['ZeroClipboard'] = ZeroClipboard;
+        });
+        require(["system-develop_message_board"], function (develop_message_board) {
+            develop_message_board.Init();
+        });
+    </script>
+}
+@using (Html.BeginForm("SaveDevelopMessageBoard", "System", FormMethod.Post, new { autocomplete = "off" }))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <script id="develop_message_board">
+
+                </script>
+                <input type="hidden" name="dev_message" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <button name="save" type="submit" class="btn btn-primary">@Html.Lang("_Comm_Save")</button>
+                <a class="btn btn-default" href="@Url.Content("~/"+Html.LangCode()+"/System/Index")">@Html.Lang("_Comm_Back")</a>
+            </div>
+        </div>
+    </div>
+
+}

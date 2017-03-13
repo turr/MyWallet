@@ -1,0 +1,52 @@
+﻿@using MyWallet.MVC5.Infrastructure
+@{
+    var json_result = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.DATA);
+}
+@section add_scripts{
+    <script>
+    var financing_js = @Html.Raw(Html.Lang("_JS_Financing"));
+    require.config({
+        paths: {
+            "financing-summary_type": "/Content/Scripts/financing-summary_type"
+        }
+    });
+    require(["financing-summary_type"], function (summary_type) {
+        summary_type.Init();
+    });
+    </script>
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("SummaryType", "Financing", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <div class="form-group">
+            <label>@Html.Lang("Financing_SummaryType_AddType")</label>
+            <input type="text" class="form-control" name="add_summary" maxlength="10">
+        </div>
+        <button name="save" type="submit" class="btn btn-primary">@Html.Lang("_Comm_Save")</button>
+        <a class="btn btn-default" href="@Url.Content("~/"+Html.LangCode()+"/System/Index")">@Html.Lang("_Comm_Back")</a>
+        <span name="add_error_message">@ViewBag.SubmitError</span>
+    }
+    <br />
+
+    <table class="table table-condensed table-bordered ">
+        <tbody>
+            @{
+                if (json_result != null)
+                {
+                    foreach (var for_data in json_result)
+                    {
+                        <tr>
+                            <td>@for_data.summ_desc</td>
+                            <td>
+                                <a href="#" name="delete" title="@for_data.summ_id">@Html.Lang("_Comm_Delete")</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

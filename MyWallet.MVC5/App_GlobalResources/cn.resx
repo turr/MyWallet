@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Financing_RecordAdjust_Title" xml:space="preserve">
+    <value>资金调整</value>
+  </data>
+  <data name="Financing_RecordDetail_Filing" xml:space="preserve">
+    <value>归档</value>
+  </data>
+  <data name="Financing_RecordDetail_NoDealLoan" xml:space="preserve">
+    <value>所有未处理借贷</value>
+  </data>
+  <data name="Financing_RecordDetail_SelectAll" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Financing_RecordDetail_Title" xml:space="preserve">
+    <value>资金详细</value>
+  </data>
+  <data name="Financing_RecordDetail_Total" xml:space="preserve">
+    <value>总额</value>
+  </data>
+  <data name="Financing_Record_AddDate" xml:space="preserve">
+    <value>录入时间</value>
+  </data>
+  <data name="Financing_Record_Amount" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="Financing_Record_LoanType" xml:space="preserve">
+    <value>借贷类型</value>
+  </data>
+  <data name="Financing_Record_RecordType" xml:space="preserve">
+    <value>记账类型</value>
+  </data>
+  <data name="Financing_Record_Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Financing_Record_Summary" xml:space="preserve">
+    <value>账号类型</value>
+  </data>
+  <data name="Financing_Record_Title" xml:space="preserve">
+    <value>记一笔</value>
+  </data>
+  <data name="Financing_Record_To" xml:space="preserve">
+    <value>到</value>
+  </data>
+  <data name="Financing_Record_ToSummary" xml:space="preserve">
+    <value>管理账户类型</value>
+  </data>
+  <data name="Financing_SummaryType_AddType" xml:space="preserve">
+    <value>添加账号类型</value>
+  </data>
+  <data name="Financing_SummaryType_Title" xml:space="preserve">
+    <value>账号类型</value>
+  </data>
+  <data name="System_Index_Title" xml:space="preserve">
+    <value>欢迎使用</value>
+  </data>
+  <data name="System_RoleError_Title" xml:space="preserve">
+    <value>权限不足</value>
+  </data>
+  <data name="System_RoleError_Txt" xml:space="preserve">
+    <value>权限不足</value>
+  </data>
+  <data name="User_LogOn_DescribeName" xml:space="preserve">
+    <value>登录名</value>
+  </data>
+  <data name="User_LogOn_DescribePassword" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="User_LogOn_DescribeSubmit" xml:space="preserve">
+    <value>登陆</value>
+  </data>
+  <data name="User_LogOn_Title" xml:space="preserve">
+    <value>登陆</value>
+  </data>
+  <data name="_Comm_Back" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="_Comm_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="_Comm_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="_Comm_Search" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="_Error_Comm_Para" xml:space="preserve">
+    <value>错误参数</value>
+  </data>
+  <data name="_Error_Financing_RecordDetail_Date" xml:space="preserve">
+    <value>错误查询日期</value>
+  </data>
+  <data name="_Error_Financing_RecordDetail_RecordType" xml:space="preserve">
+    <value>错误查询记账类型</value>
+  </data>
+  <data name="_Error_Financing_RecordDetail_Summary" xml:space="preserve">
+    <value>错误查询账号类型</value>
+  </data>
+  <data name="_Error_Financing_Record_Amount" xml:space="preserve">
+    <value>错误记账金额(需大于0)</value>
+  </data>
+  <data name="_Error_Financing_Record_LoanType" xml:space="preserve">
+    <value>错误借贷类型</value>
+  </data>
+  <data name="_Error_Financing_Record_RecordType" xml:space="preserve">
+    <value>错误记账类型</value>
+  </data>
+  <data name="_Error_Financing_Record_Remark" xml:space="preserve">
+    <value>备注长度过长,不能超过50个字符</value>
+  </data>
+  <data name="_Error_Financing_Record_Summary" xml:space="preserve">
+    <value>错误账号类型</value>
+  </data>
+  <data name="_Error_Financing_Record_ToSummary" xml:space="preserve">
+    <value>错误转账账号类型</value>
+  </data>
+  <data name="_Error_Financing_SummaryType_Add" xml:space="preserve">
+    <value>添加的账号类型输入错误(不能为空且最大10字节)</value>
+  </data>
+  <data name="_Error_User_LogOn_LoginFail" xml:space="preserve">
+    <value>账号或密码错误</value>
+  </data>
+  <data name="_JS_Financing" xml:space="preserve">
+    <value>{
+    "add_summary_null": "请填写添加的账号类型",
+    "sure_summary_delete": "确定要删除此条账号类型?",
+    "add_record_null_amount": "记账金额不能为空",
+    "add_record_error_amount": "错误记账金额(需大于0)",
+    "add_record_null_date": "添加时间不能为空",
+    "add_record_error_date": "无效日期时间",
+    "adjust_record_null_data": "记账金额不能为空",
+    "adjust_record_error_data": "错误记账金额(需大于0)",
+    "sure_record_delete": "确定删除?",
+    "sure_record_filing": "确定归档?"
+}</value>
+  </data>
+  <data name="_JS_User" xml:space="preserve">
+    <value>{
+    "need_input": "填写账号密码"
+}</value>
+  </data>
+  <data name="_Layout_menu_DevMessageBoard" xml:space="preserve">
+    <value>待开发</value>
+  </data>
+  <data name="_Layout_menu_Financing" xml:space="preserve">
+    <value>理财</value>
+  </data>
+  <data name="_Layout_menu_LogOut" xml:space="preserve">
+    <value>注销</value>
+  </data>
+  <data name="_Layout_menu_Record" xml:space="preserve">
+    <value>记一笔</value>
+  </data>
+  <data name="_Layout_menu_RecordAdjust" xml:space="preserve">
+    <value>资金调整</value>
+  </data>
+  <data name="_Layout_menu_RecordDetail" xml:space="preserve">
+    <value>明细</value>
+  </data>
+  <data name="_Layout_menu_Summary" xml:space="preserve">
+    <value>账户类型</value>
+  </data>
+</root>

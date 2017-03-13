@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="qdm211529417_dbModelStoreContainer" CdmEntityContainer="qdm211529417_dbEntities">
+    <EntitySetMapping Name="T_Loan_Type">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Loan_Type">
+        <MappingFragment StoreEntitySet="T_Loan_Type">
+          <ScalarProperty Name="loan_type_id" ColumnName="loan_type_id" />
+          <ScalarProperty Name="loan_desc" ColumnName="loan_desc" />
+          <ScalarProperty Name="loan_code" ColumnName="loan_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Manager">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Manager">
+        <MappingFragment StoreEntitySet="T_Manager">
+          <ScalarProperty Name="mana_id" ColumnName="mana_id" />
+          <ScalarProperty Name="mana_login_name" ColumnName="mana_login_name" />
+          <ScalarProperty Name="mana_login_password" ColumnName="mana_login_password" />
+          <ScalarProperty Name="mana_role" ColumnName="mana_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Record_Type">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Record_Type">
+        <MappingFragment StoreEntitySet="T_Record_Type">
+          <ScalarProperty Name="reco_type_id" ColumnName="reco_type_id" />
+          <ScalarProperty Name="reco_desc" ColumnName="reco_desc" />
+          <ScalarProperty Name="reco_code" ColumnName="reco_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Role">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Role">
+        <MappingFragment StoreEntitySet="T_Role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_desc" ColumnName="role_desc" />
+          <ScalarProperty Name="role_code" ColumnName="role_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Setting">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Setting">
+        <MappingFragment StoreEntitySet="T_Setting">
+          <ScalarProperty Name="sett_id" ColumnName="sett_id" />
+          <ScalarProperty Name="deve_message_board" ColumnName="deve_message_board" />
+          <ScalarProperty Name="mana_id" ColumnName="mana_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Summary">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Summary">
+        <MappingFragment StoreEntitySet="T_Summary">
+          <ScalarProperty Name="summ_id" ColumnName="summ_id" />
+          <ScalarProperty Name="summ_desc" ColumnName="summ_desc" />
+          <ScalarProperty Name="mana_id" ColumnName="mana_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Summary_Record">
+      <EntityTypeMapping TypeName="qdm211529417_dbModel.T_Summary_Record">
+        <MappingFragment StoreEntitySet="T_Summary_Record">
+          <ScalarProperty Name="summ_reco_id" ColumnName="summ_reco_id" />
+          <ScalarProperty Name="mana_id" ColumnName="mana_id" />
+          <ScalarProperty Name="reco_type_code" ColumnName="reco_type_code" />
+          <ScalarProperty Name="summ_id" ColumnName="summ_id" />
+          <ScalarProperty Name="summ_tran_id" ColumnName="summ_tran_id" />
+          <ScalarProperty Name="loan_type_code" ColumnName="loan_type_code" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="tran_amount" ColumnName="tran_amount" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="add_time" ColumnName="add_time" />
+          <ScalarProperty Name="is_deal" ColumnName="is_deal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

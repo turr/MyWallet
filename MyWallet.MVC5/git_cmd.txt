@@ -1,0 +1,78 @@
+﻿安装完git后需要设置(配置文件存在于C:\Users\kturr\.gitconfig)
+git config --global user.name "账号"
+git config --global user.email "邮箱"
+
+配置SSH密钥连接Github
+ssh-keygen -t rsa -C "邮箱"	创建SSH Key(确保有私钥,公钥)
+clip < ~/.ssh/id_rsa.pub	将公钥的内容复制到系统粘贴板(clipboard)中
+登录github,打开settings->ssh keys->add ssh key
+
+添加远程库
+登录github,create a new repo,输入名字,提交,切换到SSH
+git remote add origin 链接.git	把本地仓库的内容推送到GitHub仓库(需要进入到项目文件夹)
+git push -u origin master	把本地库的内容推送到远程,由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
+
+
+git init			把这个目录变成git可以管理的仓库
+git add 文件			把文件添加到暂存区
+git add -A			将添加所有文件到暂存区
+git commit -m "备注"		提交文件
+git status			查看状态
+git diff 文件			比较文件修改内容
+
+git log							查看日志
+git log --pretty=oneline				查看日志(简短)
+git log --graph --pretty=oneline --abbrev-commit	查看日志(简短,有合并信息)
+git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+							详细日志
+
+git reflog			获取版本号
+git reset HEAD 文件		把暂存区的修改撤销掉
+git reset --hard HEAD^		回到上一版本
+git reset --hard 版本号		回到某个版本号
+git checkout -- 文件		撤销当前文件.A,还没有放到暂存区，使用撤销修改就回到和版本库一模一样的状态.B,已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态
+git rm -r -n --cached  文件夹   -r 递归移除 -n不移除,只显示预览
+git rm -r --cached  文件夹	(add了整个文件夹,想撤销,使用了这个方法)
+
+
+git branch						查看当前分支
+git branch 分支名					创建分支
+git checkout 分支名					切换分支
+git checkout -b 分支名					创建切换到分支
+git branch -d 分支名					删除分支
+git branch -D 分支名					强行删除分支(如果分支已commit,但是未合并,不能使用-d删除)
+git branch --set-upstream 本地分支 远程分支		本地分支与远程分支设置关联(要先push)
+git checkout -b 本地分支 远程分支			创建切换到分支,并与远程分支设置关联(要先push)
+
+
+
+git merge 分支名					在当前分支上合并填写的分支,”Fast forward”模式,在这种模式下，删除分支后，会丢掉分支信息
+git merge -–no-ff -m "备注" 分支名			禁用”Fast forward”模式
+
+git stash						把当前工作现场隐藏起来
+git stash list						查看工作现场
+git stash apply						恢复工作现场，stash内容并不删除，你需要使用命令git stash drop来删除。
+git stash drop						删除工作现场
+git stash pop						恢复工作现场并删除
+
+git clone 链接						从远程库克隆到本地库
+git remote						查看远程库的信息
+git remote -v						查看远程库的详细信息
+git push 远程库(origin) 本地库(master)			本地签入到github
+git pull						github获取到本地
+
+git tag 标签						在最新的commit打标签
+git tag 标签 commit_id					在指定的commit打标签
+git tag -a 标签 -m "备注" commit_id			在指定的commit打带有说明的标签
+git tag							查看所有标签
+git show 标签						查看标签信息
+git tag -d 标签						删除标签
+git push 远程库(origin) 本地标签			把本地标签推送到远程库	
+git push 远程库(origin) --tags				一次性推送全部尚未推送到远程的本地标签
+git push 远程库(origin) :refs/tags/已删除标签		已经推送到远程的标签，要先从本地删除,然后从远程删除
+
+
+------------------不想一个一个配置文件放上去,最后的方法
+1.先clone
+2.把最新的带有配置文件的项目覆盖掉pull下来的文件
+3.查看状态,并把有修改的部分撤销

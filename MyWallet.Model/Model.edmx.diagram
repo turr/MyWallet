@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9cf0a6f419e344b290ab1ecbe339618e" Name="Diagram1">
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_loan_type" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_manager" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_record_type" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_role" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_setting" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_summary" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="qdm211529417_dbModel.t_summary_record" Width="1.5" PointX="6.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

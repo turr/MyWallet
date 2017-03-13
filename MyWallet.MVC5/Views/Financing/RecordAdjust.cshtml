@@ -1,0 +1,46 @@
+﻿@using MyWallet.MVC5.Infrastructure
+@using MyWallet.Model;
+
+@{
+    var json_data = Newtonsoft.Json.JsonConvert.DeserializeObject(ViewBag.DATA);
+}
+
+@section add_scripts{
+    <script>
+        var financing_js = @Html.Raw(Html.Lang("_JS_Financing"));
+        require.config({
+            paths: {
+                "financing-record_adjust": "/Content/Scripts/financing-record_adjust"
+            }
+        });
+
+        require(["financing-record_adjust"], function (record_adjust) {
+            record_adjust.Init();
+        });
+    </script>
+}
+
+<div class="container">
+    @using (Html.BeginForm("RecordAdjust", "Financing", FormMethod.Post, new { @class = "form-inline", autocomplete = "off" }))
+    {
+        if (json_data != null)
+        {
+            foreach (var foreach_data in json_data)
+            {
+                <div class="form-group">
+                    <label style="width:100px"> @foreach_data.summary_desc</label>
+                    <input type="hidden" name="summ_id" value="@foreach_data.summary_id">
+                    <input type="text" class="form-control" name="adjust_amont" value="@foreach_data.summary_sum_amount">
+                    <span name="amount_error_message"></span>
+                </div>
+                <br />
+            }
+        }
+
+        <div class="form-group">
+            <label style="width:100px" class="hidden-xs">&nbsp;</label>
+            <button name="save" type="submit" class="btn btn-primary">@Html.Lang("_Comm_Save")</button>
+            <a class="btn btn-default" href="@Url.Content("~/"+Html.LangCode()+"/System/Index")">@Html.Lang("_Comm_Back")</a>
+        </div>
+    }
+</div>

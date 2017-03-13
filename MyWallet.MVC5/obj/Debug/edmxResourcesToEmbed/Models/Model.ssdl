@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qdm211529417_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_Loan_Type">
+    <Key>
+      <PropertyRef Name="loan_type_id" />
+    </Key>
+    <Property Name="loan_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loan_desc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="loan_code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Manager">
+    <Key>
+      <PropertyRef Name="mana_id" />
+    </Key>
+    <Property Name="mana_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mana_login_name" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="mana_login_password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="mana_role" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Record_Type">
+    <Key>
+      <PropertyRef Name="reco_type_id" />
+    </Key>
+    <Property Name="reco_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reco_desc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="reco_code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_desc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="role_code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Setting">
+    <Key>
+      <PropertyRef Name="sett_id" />
+    </Key>
+    <Property Name="sett_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deve_message_board" Type="text" Nullable="false" />
+    <Property Name="mana_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Summary">
+    <Key>
+      <PropertyRef Name="summ_id" />
+    </Key>
+    <Property Name="summ_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="summ_desc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="mana_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Summary_Record">
+    <Key>
+      <PropertyRef Name="summ_reco_id" />
+    </Key>
+    <Property Name="summ_reco_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mana_id" Type="int" Nullable="false" />
+    <Property Name="reco_type_code" Type="int" Nullable="false" />
+    <Property Name="summ_id" Type="int" Nullable="false" />
+    <Property Name="summ_tran_id" Type="int" Nullable="false" />
+    <Property Name="loan_type_code" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="tran_amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="remark" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="add_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="is_deal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="qdm211529417_dbModelStoreContainer">
+    <EntitySet Name="T_Loan_Type" EntityType="Self.T_Loan_Type" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Manager" EntityType="Self.T_Manager" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Record_Type" EntityType="Self.T_Record_Type" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Role" EntityType="Self.T_Role" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Setting" EntityType="Self.T_Setting" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Summary" EntityType="Self.T_Summary" Schema="qdm211529417_db" store:Type="Tables" />
+    <EntitySet Name="T_Summary_Record" EntityType="Self.T_Summary_Record" Schema="qdm211529417_db" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,8 @@
+﻿.result_box{    margin-right: 15px; margin-left: 15px;}
+.result_box > div.row{margin-top:10px}
+.result_box .amount{ text-align:right }
+.result_box .add_date{ text-align:center }
+
+@media screen and (max-width: 992px) {
+    .result_box .add_date{ text-align:left }
+}

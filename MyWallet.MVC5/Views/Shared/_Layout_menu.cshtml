@@ -1,0 +1,46 @@
+﻿@using MyWallet.MVC5.Infrastructure
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section add_css{
+    @RenderSection("add_css", required: false)
+}
+
+@section add_scripts{
+    @RenderSection("add_scripts", required: false)
+}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="navbar-brand">Turr</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Change Nav</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Html.Lang("_Layout_menu_Financing")<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Content("~/"+Html.LangCode()+"/Financing/Record")">@Html.Lang("_Layout_menu_Record")</a></li>
+                        <li><a href="@Url.Content("~/"+Html.LangCode()+"/Financing/RecordAdjust")">@Html.Lang("_Layout_menu_RecordAdjust")</a></li>
+                        <li><a href="@Url.Content("~/"+Html.LangCode()+"/Financing/RecordDetail")">@Html.Lang("_Layout_menu_RecordDetail")</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="@Url.Content("~/"+Html.LangCode()+"/Financing/SummaryType")">@Html.Lang("_Layout_menu_Summary")</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Content("~/"+Html.LangCode()+"/System/DevelopMessageBoard")">@Html.Lang("_Layout_menu_DevMessageBoard")</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Content("~/"+Html.LangCode()+"/User/LogOut")">@Html.Lang("_Layout_menu_LogOut")</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="mycontent">
+    @RenderBody()
+</div>
+
