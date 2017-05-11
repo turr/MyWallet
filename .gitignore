@@ -1,2 +1,10 @@
-#¸ùÄ¿Â¼
 .vs
+MyWallet.BLL/bin
+MyWallet.BLL/obj
+MyWallet.DAL/bin
+MyWallet.DAL/obj
+MyWallet.Model/bin
+MyWallet.Model/obj
+MyWallet.MVC5/bin
+MyWallet.MVC5/obj
+MyWallet.MVC5/Log
