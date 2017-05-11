@@ -7,7 +7,7 @@ using MyWallet.MVC5.Infrastructure;
 
 namespace MyWallet.MVC5.Controllers
 {
-    public class BaseController : Controller 
+    public class BaseController : Controller
     {
         /// <summary>
         /// 重写控制器方法Action执行前判断
