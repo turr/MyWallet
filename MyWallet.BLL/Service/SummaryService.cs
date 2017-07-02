@@ -12,7 +12,7 @@ namespace MyWallet.BLL.Service
     {
         public IQueryable<t_summary> SearchByManagerID(int id)
         {
-            return Table().Where(M => M.mana_id == id);
+            return Table().Where(M => M.mana_id == id).OrderBy(M=>M.sort_by);
         }
     }
 }

@@ -53,6 +53,7 @@
           <Property Name="summ_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="summ_desc" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="mana_id" Type="int" Nullable="false" />
+          <Property Name="sort_by" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="t_summary_record">
           <Key>
@@ -140,6 +141,7 @@
           <Property Name="summ_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="summ_desc" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="mana_id" Type="Int32" Nullable="false" />
+          <Property Name="sort_by" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="t_summary_record">
           <Key>
@@ -212,6 +214,7 @@
           <EntitySetMapping Name="t_summary">
             <EntityTypeMapping TypeName="qdm211529417_dbModel.t_summary">
               <MappingFragment StoreEntitySet="t_summary">
+                <ScalarProperty Name="sort_by" ColumnName="sort_by" />
                 <ScalarProperty Name="mana_id" ColumnName="mana_id" />
                 <ScalarProperty Name="summ_desc" ColumnName="summ_desc" />
                 <ScalarProperty Name="summ_id" ColumnName="summ_id" />

@@ -1,2 +1,31 @@
-﻿<h2>Index</h2>
+﻿@using MyWallet.MVC5.Infrastructure
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section add_css{
+<link rel=stylesheet type=text/css href="@Url.Content("~/Content/Css/user-logon.css")" />
+}
+@section add_scripts{
+<script>
+    var user_js = @Html.Raw(Html.Lang("_JS_User"));
+    require.config({
+        paths: {
+            "user-logon": "/Content/Scripts/user-logon"
+        }
+    });
+    require(["user-logon"], function (user_logon) {
+        user_logon.Init();
+    });
+</script>
+}
 
+<div class="container">
+    @using (Html.BeginForm("LogOn", "User", FormMethod.Post, new { @class = "form-signin", @autocomplete = "off" }))
+    {
+        <h2 class="form-signin-heading">(●'◡'●)ノ♥~~~</h2>
+        <input name="login_name" type="text" class="form-control" placeholder="@Html.Lang("User_LogOn_DescribeName")" autofocus>
+        <input name="login_password" type="password" class="form-control" placeholder="@Html.Lang("User_LogOn_DescribePassword")">
+        <button class="btn btn-lg btn-primary " type="submit">@Html.Lang("User_LogOn_DescribeSubmit")</button>
+        <span name="error_message">@ViewBag.SubmitError</span>
+    }
+</div>

@@ -17,5 +17,6 @@ namespace MyWallet.Model
         public int summ_id { get; set; }
         public string summ_desc { get; set; }
         public int mana_id { get; set; }
+        public int sort_by { get; set; }
     }
 }

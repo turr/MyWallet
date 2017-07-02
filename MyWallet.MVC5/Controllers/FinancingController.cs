@@ -767,6 +767,7 @@ namespace MyWallet.MVC5.Controllers
                 t_summary add_summary = new t_summary();
                 add_summary.summ_desc = model.add_summary;
                 add_summary.mana_id = mana_id;
+                add_summary.sort_by = 10000;
                 try
                 {
                     summary_service.Insert(add_summary);
